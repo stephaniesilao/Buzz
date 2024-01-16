@@ -75,13 +75,13 @@ function Register() {
     }
 
     return ( 
-      <div className='backgroundReg' >
+      <div className='backgroundReg  min-vh-100' >
         <HStack>
-        <Heading size='xl' mb={5} color="#fff"  >Welcome to  </Heading>
+        <Heading ml="20px" size='xl' mb={5} color="#fff"  >Welcome to  </Heading>
         <Image  mt='-5' boxSize='200px'  src="https://toolsmetric.com/wp-content/uploads/2022/01/Buzz-Logo-1-1200x1200.png"  />
         </HStack>
 
-        <Container mt='-180' maxW="750px" p={40}>     
+        <Container mt="-40px" maxW="450px" >     
         <Text fontSize='2xl'  mb={2} color="#fff">Create your <span style={{color:'#1DA1F2'}}>Buzz</span> account:</Text>
 
 
