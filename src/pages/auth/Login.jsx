@@ -60,10 +60,10 @@ function Login() {
   }
 
   return (
-    <div className="background">
+    <div className="backgroundReg min-vh-100">
      <Center><img style={{width:"300px", height:"170px"}} src="https://toolsmetric.com/wp-content/uploads/2022/01/Buzz-Logo-1-1200x1200.png"  /></Center>
      <Center fontSize='md' mt="-10"   color="#fff">Share your thoughts. Connect with people.</Center>
-     <Container maxW="500px" pb={60}>
+     <Container maxW="500px" >
       <br/>
 
       {/* Login Form */}

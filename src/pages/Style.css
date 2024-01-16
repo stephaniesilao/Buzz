@@ -4,6 +4,9 @@
     background-size: cover;
     height: 850px; */
 }
+.backgroundReg{
+    background-color:#161616;
+}
 .line:hover {
     text-decoration: underline;
 }

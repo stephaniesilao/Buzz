@@ -75,7 +75,7 @@ function Register() {
     }
 
     return ( 
-      <div className='background'>
+      <div className='backgroundReg' >
         <HStack>
         <Heading size='xl' mb={5} color="#fff"  >Welcome to  </Heading>
         <Image  mt='-5' boxSize='200px'  src="https://toolsmetric.com/wp-content/uploads/2022/01/Buzz-Logo-1-1200x1200.png"  />
