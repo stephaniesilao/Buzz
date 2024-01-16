@@ -1,0 +1,39 @@
+.background{
+    background-color:#fff;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    height: 850px; */
+}
+.line:hover {
+    text-decoration: underline;
+}
+ 
+.flex-container{
+        display: flex;
+        flex-wrap: wrap;   
+        flex-direction: column;
+    }
+    .responsive{
+        display: flex;
+        flex-wrap: row wrap;  
+        flex-direction: row
+    }   
+
+
+.margin {
+    margin-top: 170px;
+    text-align: center;
+}
+.navmargin {
+    margin-left: 150px;
+}
+
+.spaceAround{
+    display: flex;
+    justify-content: space-around;
+}
+
+.justify {
+    display: flex;
+    justify-content: space-between;
+}
