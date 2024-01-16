@@ -22,19 +22,23 @@ function Register() {
     const [password, setPassword] = useState ('');
     const [confirmPassword, setConfirmPassword] = useState ('');
 
-    let navigate = useNavigate();
-
     const auth = getAuth(firebaseApp);
 
-    useEffect(()=>{
-       
-        onAuthStateChanged(auth, (user)=>{
-            if(user){
+    let navigate = useNavigate();
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+          if (user) {
+              if (user.displayName) {
+                  setName(user.displayName);
+              }
               navigate('/');
-            }
-        })
-    
-    },[])
+              setTimeout(() => {
+                  window.location.reload();
+              }, 250);
+          }
+      });
+  }, [auth, navigate]);
 
     const handleRegistration = ()=> {
         if(
