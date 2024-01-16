@@ -17,66 +17,71 @@ import "../Style.css";
   
 function Register() {
 
-    const [name, setName] = useState ('');
-    const [email, setEmail] = useState ('');
-    const [password, setPassword] = useState ('');
-    const [confirmPassword, setConfirmPassword] = useState ('');
+  const [name, setName] = useState ('');
+  const [email, setEmail] = useState ('');
+  const [password, setPassword] = useState ('');
+  const [confirmPassword, setConfirmPassword] = useState ('');
 
-    const auth = getAuth(firebaseApp);
+  let navigate = useNavigate();
 
-    let navigate = useNavigate();
+  const auth = getAuth(firebaseApp);
 
-    useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              if (user.displayName) {
-                  setName(user.displayName);
-              }
-              navigate('/');
-              setTimeout(() => {
-                  window.location.reload();
-              }, 250);
+  useEffect(()=>{
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+          if (user.displayName) {
+              setName(user.displayName);
           }
-      });
-  }, [auth, navigate]);
+          navigate('/');
+          setTimeout(() => {
+              window.location.reload();
+          }, 250);
+      }
+  });
+}, [auth, navigate]);
 
-    const handleRegistration = ()=> {
-        if(
-            name !=='' &&
-            email !=='' &&
-            password !== '' &&
-            confirmPassword !== '' &&
-            password===confirmPassword
-        ){
 
-           
-            createUserWithEmailAndPassword(auth, email, password).then(
-                (userCredential)=> {
-                    const user = userCredential.user;
+  const handleRegistration = ()=> {
+      if(
+          name !=='' &&
+          email !=='' &&
+          password !== '' &&
+          confirmPassword !== '' &&
+          password===confirmPassword
+      ){
 
-                    updateProfile(auth.currentUser, { 
-                        displayName:name
-                    });
 
-                    navigate("/");
+          createUserWithEmailAndPassword(auth, email, password).then(
+              (userCredential)=> {
+                  const user = userCredential.user;
+
+                  updateProfile(auth.currentUser, { 
+                      displayName:name
+                  }).then(() => {
+                    setName(name);
+                    navigate('/');
                 });
 
-            Swal.fire({
-                title: "Registration successful!",
-                
-                icon: "success",
-                confirmButtonColor: "#3085d6",
+                 
               });
-        }
-         else {
-            Swal.fire({
-                title: "Registration failed!",
-                text: "Please try again",
-                icon: "error",
-                confirmButtonColor: "#3085d6",
-              });
-        }
-    }
+
+          Swal.fire({
+              title: "Registration successful!",
+
+              icon: "success",
+              confirmButtonColor: "#3085d6",
+            });
+      }
+       else {
+          Swal.fire({
+              title: "Registration failed!",
+              text: "Please try again",
+              icon: "error",
+              confirmButtonColor: "#3085d6",
+            });
+      }
+  }
 
     return ( 
       <div className='backgroundReg  min-vh-100' >
@@ -111,9 +116,9 @@ function Register() {
             </FormControl>
             <FormControl>
               <FormLabel>Password</FormLabel>
-              <Input type='password' 
+              <Input placeholder='put atleast 8 characters' type='password' 
                onChange={(e)=>{
-                setPassword(e.target.value)
+                setPassword(e.target.value) 
               }}
               value={password} />
             </FormControl>

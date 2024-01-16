@@ -91,11 +91,7 @@ function Home() {
     }
 
     return (
-        
-
-      
-
-
+  
             <Container maxW="1200px" className='flex-container d-flex flex-column min-vh-100'  >
                 <nav className="navbar d-flex justify-content-between navbar-dark bg-dark">
                     <a className="navbar-brand ms-3" style={{ color: '#1DA1F2', fontWeight: 'bold', fontSize: '25px' }} href="#">Buzz</a>
